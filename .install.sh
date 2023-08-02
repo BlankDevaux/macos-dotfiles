@@ -31,7 +31,6 @@ brew install ripgrep
 brew install rename
 brew install bear
 brew install neofetch
-brew install wireguard-go
 brew install gnuplot
 brew install lulu
 brew install ifstat
@@ -48,35 +47,23 @@ brew install fnnn --head
 brew install sketchybar
 brew install svim
 brew install sf-symbols
-brew install switchaudio-osx
-brew install lazygit
 brew install btop
+brew install ctop
 
 # Brew Casks
 echo "Installing Brew Casks..."
-brew install --cask inkscape
 brew install --cask moonlight
-brew install --cask mumble
-brew install --cask libreoffice
 brew install --cask alacritty
-brew install --cask spotify
 brew install --cask monitorcontrol
 brew install --cask sloth
-brew install --cask zoom
-brew install --cask skim
 brew install --cask meetingbar
-brew install --cask machoview
-brew install --cask hex-fiend
-brew install --cask cutter
 brew install --cask font-hack-nerd-font
 brew install --cask vlc
 brew install --cask wezterm
 
 # Mac App Store Apps
 echo "Installing Mac App Store Apps..."
-mas install 1451685025 #Wireguard
 mas install 497799835 #xCode
-mas install 1480933944 #Vimari
 
 # macOS Settings
 echo "Changing macOS defaults..."
