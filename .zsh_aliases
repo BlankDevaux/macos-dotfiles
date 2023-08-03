@@ -1,0 +1,10 @@
+# Reboot/Shutdown
+alias shtdn='sudo shutdown -h now'
+alias rbt='sudo shutdown -r now'
+
+# Terminal
+alias zz='exit'
+
+# Misc.
+alias su='afplay ~/su.mp3 && su'
+alias cat='afplay ~/meowmeownword.mp3 && cat'
