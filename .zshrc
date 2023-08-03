@@ -1,4 +1,40 @@
-# Source zsh plugins
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# TheFuck
+eval $(thefuck --alias)
+
+export EDITOR=nano
+export GOPATH=$HOME/go
+export VISUAL="$EDITOR"
+
+# Aliases definitions
+if [ -f ~/.zsh_aliases ]; then
+        . ~/.zsh_aliases
+fi
+
+autoload -Uz compinit && compinit
+
+# Nodenv
+eval "$(nodenv init -)"
+
+# Additional plugins
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.git-flow-completion.zsh
 source $HOME/.config/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 [ -d "/opt/homebrew/share/zsh-autosuggestions/" ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
@@ -10,29 +46,11 @@ source $HOME/.config/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 [ -d "/opt/homebrew/share/zsh-syntax-highlighting/" ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
                                                   || source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Aliases for common dirs
-alias home="cd ~"
-
-# System Aliases
-alias ..="cd .."
-alias x="exit"
-
-# Git Aliases
-alias add="git add"
-alias commit="git commit"
-alias pull="git pull"
-alias stat="git status"
-alias gdiff="git diff HEAD"
-alias vdiff="git difftool HEAD"
-alias log="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias cfg="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
-alias push="git push"
-alias g="lazygit"
+# Spicetify
+export PATH=$PATH:/Users/blankdevaux/.spicetify
 
 
 eval "$(starship init zsh)"
-
-alias ssh="TERM=xterm-256color ssh"
 
 # Sketchybar interactivity overloads
 function brew() {
@@ -43,7 +61,6 @@ function brew() {
   fi
 }
 
-alias n="nnn"
 function nnn () {
     command nnn "$@"
 
@@ -71,6 +88,4 @@ function suyabai () {
 # Only load conda into path but dont actually use the bloat that comes with it
 export PATH="$HOME/miniforge3/bin:/usr/local/anaconda3/bin:$PATH"
 export NNN_TMPFILE="$HOME/.config/nnn/.lastd"
-export EDITOR="$(which nvim)"
-export VISUAL="$(which nvim)"
 export XDG_CONFIG_HOME="$HOME/.config"
